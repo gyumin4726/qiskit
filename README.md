@@ -1,37 +1,78 @@
-# Qiskit Study Notes
+# 양자 컴퓨팅 알고리즘 구현
 
-이 저장소는 IBM Qiskit을 활용하여 양자 컴퓨팅을 학습한 내용을 정리한 개인 스터디용 저장소입니다.  
-대표적인 양자 알고리즘을 직접 구현하고 실험하며 이해를 돕기 위해 작성되었습니다.
+이 프로젝트는 Qiskit을 사용하여 주요 양자 알고리즘들을 구현하고 시각화한 주피터 노트북 모음입니다.
 
-## 학습한 알고리즘
+## 구현된 알고리즘
 
-- `deutsch_jozsa_algorithm.ipynb`  
-  → 어떤 이진 함수가 **상수 함수인지** 또는 **균형 함수인지**를 한 번의 양자 연산으로 판별하는 알고리즘  
-  (고전적으로는 최대 2ⁿ⁻¹+1번의 호출이 필요한 문제를 단 1번으로 해결)
+### 1. 양자 위상 추정 (Quantum Phase Estimation)
+- **목적**: 유니타리 연산자의 고유값 위상을 추정
+- **주요 특징**:
+  - 역 푸리에 변환을 통한 위상 추정
+  - 제어 회전 연산 활용
+  - 고유값 위상의 정밀한 추정
+- **파일**: `quantum_phase_estimation.ipynb`
 
-- `grover_algorithm.ipynb`  
-  → **비정렬 데이터베이스에서 원하는 항목을 더 빠르게 찾기 위한** 양자 검색 알고리즘  
-  (고전적으로는 O(N)이 필요한 검색을 O(√N)으로 단축)
+### 2. 그로버 알고리즘 (Grover's Algorithm)
+- **목적**: 정렬되지 않은 데이터베이스에서 특정 항목 검색
+- **주요 특징**:
+  - 양자 진폭 증폭 기법 사용
+  - 오라클과 확산 연산자의 반복 적용
+  - 고전 알고리즘 대비 제곱근 시간 복잡도
+- **파일**: `grover_algorithm.ipynb`
 
-- `quantum_phase_estimation.ipynb`  
-  → **주어진 유니터리 연산자의 고유값(위상)** 을 정밀하게 추정하는 알고리즘  
-  (Shor 알고리즘이나 양자 시뮬레이션 등 다양한 알고리즘의 핵심 구성 요소로 사용됨)
+### 3. 도이치-조자 알고리즘 (Deutsch-Jozsa Algorithm)
+- **목적**: 함수가 상수 함수인지 균형 함수인지 판별
+- **주요 특징**:
+  - 단일 쿼리로 함수의 성질 판별
+  - 양자 중첩과 간섭 현상 활용
+  - 고전 알고리즘 대비 지수적 속도 향상
+- **파일**: `deutsch_jozsa_algorithm.ipynb`
 
 ## 진행 중인 작업
 
-- `Shor's Algorithm`  
-  → 현재 Qiskit 버전 이슈로 실행 오류 발생  
-  → 향후 Qiskit 업데이트 및 환경 설정 후 업로드 예정
+### Shor's Algorithm
+- **현재 상태**: Qiskit 버전 이슈로 실행 오류 발생
+- **계획**: 향후 Qiskit 업데이트 및 환경 설정 후 업로드 예정
 
 ## 앞으로 추가할 계획인 알고리즘
 
-- Quantum Fourier Transform (QFT)
-- Variational Quantum Eigensolver (VQE)
-- Quantum Approximate Optimization Algorithm (QAOA)
-- Shor's Algorithm (정상 작동 환경에서 재구현 예정)
+1. Quantum Fourier Transform (QFT)
+2. Variational Quantum Eigensolver (VQE)
+3. Quantum Approximate Optimization Algorithm (QAOA)
+4. Shor's Algorithm (정상 작동 환경에서 재구현 예정)
 
-## 실행 환경
+## 기술 스택
 
-- Python 3.7+
-- Qiskit
-- Jupyter Notebook
+- **프레임워크**: Qiskit
+- **언어**: Python
+- **시각화**: Matplotlib, Qiskit 시각화 도구
+- **시뮬레이션**: Qiskit Aer
+
+3. 시각화된 회로와 결과를 통해 알고리즘의 동작을 이해하세요
+
+## 알고리즘 비교
+
+| 알고리즘 | 고전 복잡도 | 양자 복잡도 | 주요 응용 분야 |
+|---------|------------|------------|---------------|
+| 위상 추정 | O(N) | O(log N) | 양자 시뮬레이션, 분자 구조 분석 |
+| 그로버 | O(N) | O(√N) | 데이터베이스 검색, 최적화 문제 |
+| 도이치-조자 | O(2^n) | O(1) | 함수 분석, 양자 우위 증명 |
+
+## 주요 특징
+
+- **시각화**: 각 알고리즘의 회로 구성과 동작을 직관적으로 이해할 수 있는 시각화 제공
+- **실행 결과**: 실제 양자 회로의 실행 결과와 상태 벡터 분석
+- **이론적 배경**: 각 알고리즘의 수학적 원리와 양자역학적 의미 설명
+- **최적화**: 효율적인 회로 구성과 게이트 최적화 기법 적용
+
+## 참고 사항
+
+- 모든 알고리즘은 Qiskit의 시뮬레이터를 사용하여 실행됩니다
+- 실제 양자 하드웨어에서 실행하려면 IBM Quantum 계정이 필요합니다
+- 각 노트북은 독립적으로 실행 가능하며, 순서대로 학습하는 것을 추천합니다
+
+## 유용한 학습 링크
+
+- [Qiskit 공식 문서](https://qiskit.org/documentation/)
+- [IBM Quantum Experience](https://quantum-computing.ibm.com/)
+- [양자 컴퓨팅 기초](https://qiskit.org/textbook/preface.html)
