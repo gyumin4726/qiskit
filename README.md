@@ -48,7 +48,6 @@
 - **시각화**: Matplotlib, Qiskit 시각화 도구
 - **시뮬레이션**: Qiskit Aer
 
-3. 시각화된 회로와 결과를 통해 알고리즘의 동작을 이해하세요
 
 ## 알고리즘 비교
 
@@ -74,5 +73,3 @@
 ## 유용한 학습 링크
 
 - [Qiskit 공식 문서](https://qiskit.org/documentation/)
-- [IBM Quantum Experience](https://quantum-computing.ibm.com/)
-- [양자 컴퓨팅 기초](https://qiskit.org/textbook/preface.html)
